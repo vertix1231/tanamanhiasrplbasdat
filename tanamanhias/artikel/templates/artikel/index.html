@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<nav class="navbar navbar-expand-md navbar-light bg-success shadow" style="margin-top: -40px">
+	  <a class="navbar-brand" href="create/">
+	  	<h3></h3><img src="/static/img/pngflow.com.png" style="height:20px">Tulis Artikel</a> 
+</nav>	  
+	{% for post in Posts %}
+
+	<div class="container-fluid">
+		<div class="container bg-success text-white shadow" style=" center; height: 230px; margin-top: 10px" id="myBody">
+			<div style="font-family: 'Times New Roman', Times, serif; margin-left: 10px;">
+				<h3>{{post.judul}}</h3>
+				<p>Penulis : {{post.author}} | {{post.publish}} </p>
+				
+				<p>{{post.body|truncatechars:200}}</p>
+				<a href="/artikel/singlepost/{{post.slug}}" title="">
+					<p>read more ...</p>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+	{% endfor %}
+
+{% endblock content %}
